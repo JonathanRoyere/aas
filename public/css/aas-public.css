@@ -2,3 +2,358 @@
  * All of the CSS for your public-facing functionality should be
  * included in this file.
  */
+
+ .center-it  {
+   text-align: center;
+ }
+ .shift4 {
+   width: 33.3333%;
+   margin: 0 auto;
+   float: left;
+ }
+
+.aws-results > .row {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.product-card {
+	width: 100%;
+	box-shadow: 2px 2px 8px 0 rgba(0,0,0,.2);
+	height: 100%;
+	margin: 0 auto;
+}
+
+.product-image {
+	height: 10rem;
+	width: 100%;
+	padding: .5rem 1rem;
+	position: relative;
+}
+
+.product-image img {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto !important;
+	max-height: 8rem;
+}
+
+.product-info {
+	overflow: hidden;
+	padding: 1rem .7rem;
+	box-shadow: 0px -5px 14px -4px rgb(0,0,0,0.1);
+}
+
+.aws-loader {
+  text-align: center;
+}
+
+.aws-loader img {
+  max-width: 3rem;
+}
+
+.aws-loader h4 {
+  margin: .5rem;
+}
+
+.btn-0 {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 2.5rem;
+    max-width: 12rem;
+    margin: 1rem auto;
+    text-transform: uppercase;
+    color: #FF5046;
+    border: 1px solid #FF5046;
+    text-decoration: none;
+    line-height: 2.2rem;
+    transition: .4s ease-in-out;
+}
+
+.btn-0:hover {
+	color: #fff;
+  background: #FF5046;
+}
+
+.product-title {
+  font-size: 1rem;
+  color: #999999;
+  font-weight: 300;
+}
+
+ .product-price {
+   color: #45C2E6;
+   font-size: 1.5em;
+   position: relative;
+   margin: 1rem 0.5rem 0;
+}
+
+.parallax_wrap {
+ position: relative;
+}
+.parallax_wrap:before {
+ content: '';
+ display: block;
+ z-index: 3;
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ background: rgba(0,0,0,0.3);
+}
+
+.res-container  {
+	padding: 1rem;
+}
+.aws-search select {
+    font-size: 14px;
+    background: #ffffff;
+    border: 1px solid #dcdcdc;
+    line-height: 20px;
+    color: #999999;
+    padding: 10px 20px 11px 20px;
+    border-radius: 0;
+    background: url(../../assets/arr_down.png) no-repeat;
+    background-size: 1rem;
+    background-position: right .6rem top 50%;
+}
+
+.aws-search input {
+  border-color:  #dcdcdc;
+}
+
+.aws-search input[type=radio] {
+  display: none;
+}
+.aws-search input[type=radio] + label {
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  padding: 10px 20px 11px 20px;
+  transition: .2s ease-in-out;
+}
+.aws-search input[type=radio]:hover + label {
+  border-color: #4DC5E7;
+}
+.aws-search input[type=radio]:checked + label{
+  border: 2px solid #4DC5E7;
+  color: #999999;
+}
+
+.aws-search .range-slider input {
+  margin: .5rem 0px;
+  border: 0px;
+  padding: 0;
+}
+
+.aws-search .aws-inputs label , .label-head {
+  padding: .5rem 0;
+  display: block;
+  font-size: 1rem;
+  color: #999999;
+  font-weight: 300;
+}
+
+.control {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-size: 18px;
+}
+.control input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.control__indicator {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background: #e6e6e6;
+}
+.control--radio .control__indicator {
+  border-radius: 50%;
+}
+.control:hover input ~ .control__indicator,
+.control input:focus ~ .control__indicator {
+  background: #ccc;
+}
+.control input:checked ~ .control__indicator {
+  background: #4DC5E7;
+}
+.control:hover input:not([disabled]):checked ~ .control__indicator,
+.control input:checked:focus ~ .control__indicator {
+  background: #0e647d;
+}
+.control input:disabled ~ .control__indicator {
+  background: #e6e6e6;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.control__indicator:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+.control input:checked ~ .control__indicator:after {
+  display: block;
+}
+.control--checkbox .control__indicator:after {
+  left: 8px;
+  top: 4px;
+  width: 3px;
+  height: 8px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.control--checkbox input:disabled ~ .control__indicator:after {
+  border-color: #7b7b7b;
+}
+
+.control--radio .control__indicator:after {
+  left: 7px;
+  top: 7px;
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.control--radio input:disabled ~ .control__indicator:after {
+  background: #7b7b7b;
+}
+
+.select {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.aws-search {
+	margin: 1rem;
+	padding: 1rem;
+	border: 1px solid #f0f0f0;
+	border-top: 3px solid #4DC5E7;
+}
+
+.aws-search form div {
+	margin-top: 0;
+}
+
+.aws-search input {
+	vertical-align: middle;
+}
+
+.aws-search input[type="text"] {
+  border: 1px solid #dcdcdc;
+}
+
+.aws-inputs > div {
+	display: inline-block;
+  padding: 0rem .5rem .5rem .5rem;
+  vertical-align: middle;
+}
+
+.aws-inputs .checkboxes label {
+  display: inline-block;
+  padding:  0 1rem 0 1.6rem;
+}
+
+.submit-cont {
+  text-align: right;
+  float: right;
+}
+
+.check-brands {
+  line-height: 1.6rem;
+}
+
+.search-cont {
+	width: 33%;
+}
+
+.search-cont > div {
+	display: inline-block;
+  vertical-align: middle;
+}
+
+.search-cont > .label-head {
+	display: block;
+}
+
+.item-price > div {
+	width: 50%;
+  float: left;
+}
+
+.min-price {
+	padding-right: .5rem;
+}
+
+.max-price {
+	padding-left: .5rem;
+}
+
+.item-price  select {
+	width: 100%;
+}
+
+.submit-cont input[type="submit"] {
+  background: #4DC5E7;
+  font-size: .9rem;
+  padding: .6rem 1.5rem;
+  border-radius: 2px;
+  font-weight: 400;
+}
+
+.submit-cont input[type="submit"]:hover {
+  background: #0e647d;
+}
+
+/* media queries */
+
+
+@media(max-width: 950px) {
+	.shift4 {
+	width: 50%;
+  }
+}
+
+@media(max-width: 600px) {
+	.shift4 {
+	width: 100%;
+  }
+}
+
+@media(max-width: 1300px) {
+	.aws-inputs > div {
+		width: 100%;
+	}
+}
+
+@media(max-width: 700px) {
+	.submit-cont {
+		display: block;
+		width: 100%;
+		text-align: left;
+		margin-top: 1rem;
+	}
+}
+
+@media(max-width: 380px) {
+	.aws-search .aws-inputs label {
+		margin: .4rem;
+	}
+}

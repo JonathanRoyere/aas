@@ -1,6 +1,7 @@
 (function( $ ) {
 	'use strict';
 
+
 	/**
 	 * All of the code for your public-facing JavaScript source
 	 * should reside in this file.
@@ -29,4 +30,28 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 
+
+	 //range slider function
+
+	 $( document ).ready(function() {
+ var rangeSlider = function(){
+  var slider = $('.range-slider'),
+      range = $('.range-slider__range'),
+      value = $('.range-slider__value');
+
+  slider.each(function(){
+
+    value.each(function(){
+      var value = $(this).parent().next().attr('value');
+      $(this).html(value);
+    });
+
+    range.on('input', function(){
+      $(this).prev().children(value).html(this.value);
+    });
+  });
+};
+
+rangeSlider();
+}); //end doc ready
 })( jQuery );

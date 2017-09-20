@@ -57,6 +57,150 @@ register_deactivation_hook( __FILE__, 'deactivate_aas' );
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-aas.php';
 
+require plugin_dir_path( __FILE__ ) . 'SearchWidget.php';
+
+//register plugin settings
+add_action( 'admin_menu', 'aas_add_admin_menu' );
+add_action( 'admin_init', 'aas_settings_init' );
+
+
+function aas_add_admin_menu(  ) {
+
+	add_options_page( 'Amazon Associate Sales', 'Amazon Associate Sales', 'manage_options', 'amazon_associate_sales', 'aas_options_page' );
+
+}
+
+
+function aas_settings_init(  ) {
+
+	register_setting( 'pluginPage', 'aas_settings' );
+
+	add_settings_section(
+			'aas_pluginPage_section',
+			__( 'Associate Account Info', 'wordpress' ),
+			'aas_settings_section_callback',
+			'pluginPage'
+		);
+
+
+	add_settings_field(
+		'api_key',
+		__( 'AWS API Key', 'wordpress' ),
+		'api_key_render',
+		'pluginPage',
+		'aas_pluginPage_section'
+	);
+
+	add_settings_field(
+		'aas_secret_key',
+		__( 'AWS API Secret Key', 'wordpress' ),
+		'aas_secret_key_render',
+		'pluginPage',
+		'aas_pluginPage_section'
+	);
+
+	add_settings_field(
+		'aas_assoc_tag',
+		__( 'AWS Associate Tag', 'wordpress' ),
+		'aas_assoc_tag_render',
+		'pluginPage',
+		'aas_pluginPage_section'
+	);
+
+	add_settings_field(
+		'aas_text_field_3',
+		__( 'Secondary AWS Associate Tag', 'wordpress' ),
+		'aas_text_field_3_render',
+		'pluginPage',
+		'aas_pluginPage_section'
+	);
+
+	add_settings_field(
+		'search_terms',
+		__( 'Search terms (separate with comma)', 'wordpress' ),
+		'search_terms_render',
+		'pluginPage',
+		'aas_pluginPage_section'
+	);
+
+
+}
+
+
+function api_key_render(  ) {
+
+	$options = get_option( 'aas_settings' );
+	?>
+	<input type='text' name='aas_settings[api_key]' value='<?php echo $options["api_key"]; ?>'>
+	<?php
+
+}
+
+
+function aas_secret_key_render(  ) {
+
+	$options = get_option( 'aas_settings' );
+	?>
+	<input type='text' name='aas_settings[aas_secret_key]' value='<?php echo $options['aas_secret_key']; ?>'>
+	<?php
+
+}
+
+
+function aas_assoc_tag_render(  ) {
+
+	$options = get_option( 'aas_settings' );
+	?>
+	<input type='text' name='aas_settings[aas_assoc_tag]' value='<?php echo $options['aas_assoc_tag']; ?>'>
+	<?php
+
+}
+
+
+function aas_text_field_3_render(  ) {
+
+	$options = get_option( 'aas_settings' );
+	?>
+	<input type='text' name='aas_settings[aas_text_field_3]' value='<?php echo $options['aas_text_field_3']; ?>'>
+	<?php
+
+}
+
+function search_terms_render(  ) {
+
+	$options = get_option( 'aas_settings' );
+	?>
+	<input type='text' name='aas_settings[search_terms]' value='<?php echo $options['search_terms']; ?>'>
+	<?php
+
+}
+
+
+function aas_settings_section_callback(  ) {
+
+	echo __( 'Enter your amazon info to help generate product url', 'wordpress' );
+
+}
+
+
+function aas_options_page(  ) {
+
+	?>
+	<form action='options.php' method='post'>
+
+		<h2>Amazon Associate Sales</h2>
+
+		<?php
+		settings_fields( 'pluginPage' );
+		do_settings_sections( 'pluginPage' );
+		submit_button();
+		?>
+
+	</form>
+	<?php
+
+}
+
 /**
  * Begins execution of the plugin.
  *
